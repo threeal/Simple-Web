@@ -25,9 +25,9 @@ set(CPACK_GENERATOR "DEB")
 set(CPACK_DEBIAN_PACKAGE_NAME "libsimpleweb-dev")
 set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
 set(CPACK_DEBIAN_PACKAGE_VERSION "${PROJECT_VERSION}")
-set(CPACK_DEBIAN_PACKAGE_RELEASE 1)
+set(CPACK_DEBIAN_PACKAGE_RELEASE 2)
 set(CPACK_DEBIAN_PACKAGE_DEPENDS
-  "libssl-dev (>= 1.1), libboost-filesystem (>= 1.65), libboost-thread-dev (>= 1.65)"
+  "libssl-dev (>= 1.1), libboost-filesystem-dev (>= 1.65), libboost-thread-dev (>= 1.65)"
 )
 set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Alfi Maulana <alfi.maulana.f@gmail.com>")
 set(CPACK_DEBIAN_PACKAGE_DESCRIPTION
