@@ -1,0 +1,6 @@
+find_package(OpenSSL)
+if(OPENSSL_FOUND)
+  target_compile_definitions(simpleweb INTERFACE SIMPLEWEB_OPENSSL)
+  target_link_libraries(simpleweb INTERFACE ${OPENSSL_LIBRARIES})
+  target_include_directories(simpleweb INTERFACE ${OPENSSL_INCLUDE_DIR})
+endif()
