@@ -1,7 +1,7 @@
-#ifndef SIMPLE_WEB_SERVER_WSS_HPP
-#define SIMPLE_WEB_SERVER_WSS_HPP
+#ifndef SIMPLE_WEB_WSS_SERVER_HPP
+#define SIMPLE_WEB_WSS_SERVER_HPP
 
-#include <simpleweb/server_ws.hpp>
+#include "simpleweb/wss_server.hpp"
 #include <algorithm>
 #include <openssl/ssl.h>
 
@@ -14,6 +14,7 @@
 
 namespace SimpleWeb {
   using WSS = asio::ssl::stream<asio::ip::tcp::socket>;
+  using WssServer = SocketServer<WSS>;
 
   template <>
   class SocketServer<WSS> : public SocketServerBase<WSS> {
@@ -83,4 +84,4 @@ namespace SimpleWeb {
   };
 } // namespace SimpleWeb
 
-#endif /* SIMPLE_WEB_SERVER_WSS_HPP */
+#endif /* SIMPLE_WEB_WSS_SERVER_HPP */

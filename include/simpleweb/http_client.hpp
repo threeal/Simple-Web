@@ -1,9 +1,9 @@
-#ifndef SIMPLE_WEB_CLIENT_HTTP_HPP
-#define SIMPLE_WEB_CLIENT_HTTP_HPP
+#ifndef SIMPLE_WEB_HTTP_CLIENT_HPP
+#define SIMPLE_WEB_HTTP_CLIENT_HPP
 
-#include <simpleweb/asio_compatibility.hpp>
-#include <simpleweb/mutex.hpp>
-#include <simpleweb/utility.hpp>
+#include "simpleweb/asio_compatibility.hpp"
+#include "simpleweb/mutex.hpp"
+#include "simpleweb/utility.hpp"
 #include <limits>
 #include <random>
 #include <unordered_set>
@@ -751,6 +751,7 @@ namespace SimpleWeb {
   class Client : public ClientBase<socket_type> {};
 
   using HTTP = asio::ip::tcp::socket;
+  using HttpClient = Client<HTTP>;
 
   template <>
   class Client<HTTP> : public ClientBase<HTTP> {
@@ -803,4 +804,4 @@ namespace SimpleWeb {
   };
 } // namespace SimpleWeb
 
-#endif /* SIMPLE_WEB_CLIENT_HTTP_HPP */
+#endif /* SIMPLE_WEB_HTTP_CLIENT_HPP */

@@ -1,5 +1,5 @@
-#include <simpleweb/client_http.hpp>
-#include <simpleweb/server_http.hpp>
+#include <simpleweb/http_client.hpp>
+#include <simpleweb/http_server.hpp>
 
 // Added for the json-example
 #define BOOST_SPIRIT_THREADSAFE
@@ -19,8 +19,8 @@ using namespace std;
 // Added for the json-example:
 using namespace boost::property_tree;
 
-using HttpServer = SimpleWeb::Server<SimpleWeb::HTTP>;
-using HttpClient = SimpleWeb::Client<SimpleWeb::HTTP>;
+using SimpleWeb::HttpServer;
+using SimpleWeb::HttpClient;
 
 int main() {
   // HTTP-server at port 8080 using 1 thread

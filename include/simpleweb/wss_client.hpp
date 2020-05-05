@@ -1,7 +1,7 @@
-#ifndef SIMPLE_WEB_CLIENT_WSS_HPP
-#define SIMPLE_WEB_CLIENT_WSS_HPP
+#ifndef SIMPLE_WEB_WSS_CLIENT_HPP
+#define SIMPLE_WEB_WSS_CLIENT_HPP
 
-#include <simpleweb/client_ws.hpp>
+#include "simpleweb/ws_client.hpp"
 
 #ifdef SIMPLEWEB_USE_STANDALONE_ASIO
 #include <asio/ssl.hpp>
@@ -11,6 +11,7 @@
 
 namespace SimpleWeb {
   using WSS = asio::ssl::stream<asio::ip::tcp::socket>;
+  using WssClient = SocketClient<WSS>;
 
   template <>
   class SocketClient<WSS> : public SocketClientBase<WSS> {
@@ -149,4 +150,4 @@ namespace SimpleWeb {
   };
 } // namespace SimpleWeb
 
-#endif /* SIMPLE_WEB_CLIENT_WSS_HPP */
+#endif /* SIMPLE_WEB_WSS_CLIENT_HPP */

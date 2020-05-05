@@ -32,12 +32,34 @@ This project was created from the merge of [Simple Web Server](https://gitlab.co
 
 - Clone and checkout both `Simple Web Server` and `Simple Websocket Server` to the latest release.
 - Merge both header files (`*.hpp`) of the library and put it under `include/simpleweb` directory.
-  > Note: both library could contains the same header files.
+  > **Note**: both library could contains the same header files.
   > Make sure to checkout the repository on version that make both library contains the same header version, else you need to fix the conflict manually.
+- Rename some header files as follow:
+  - rename `client_http.hpp` to `http_client.hpp`.
+  - rename `client_https.hpp` to `https_client.hpp`.
+  - rename `client_ws.hpp` to `ws_client.hpp`.
+  - rename `client_wss.hpp` to `wss_client.hpp`.
+  - rename `server_http.hpp` to `http_server.hpp`.
+  - rename `server_https.hpp` to `https_server.hpp`.
+  - rename `server_ws.hpp` to `ws_server.hpp`.
+  - rename `server_wss.hpp` to `wss_server.hpp`.
+  > **Note**: don't forget to fix the `#include` definition and the header guard for each source files and header files to match the new header path.
+  > _(Example: change from `#include "client_http.hpp"` to `#include "simple_web/http_client.hpp"`)_
 - Put example files including the html examples of both library under `examples` directory.
 - For every source files and header files in this project, make the following changes:
-  - Rename some of macro definition, `USE_STANDALONE_ASIO` to `SIMPLEWEB_USE_STANDALONE_ASIO`, `HAVE_OPENSSL` to `SIMPLEWEB_USE_STANDALONE_ASIO`, and `HAVE_OPENSSL` to `SIMPLEWEB_USE_OPENSSL`.
-  - Add `simpleweb` prefix for each include of the header files, and change it format to a bracket (`<>`). _(example: rename `#include "utility.hpp"` to `#include <simpleweb/utility.hpp>`)_
+  - Rename some macro definitions as follow:
+    - change `USE_STANDALONE_ASIO` to `SIMPLEWEB_USE_STANDALONE_ASIO`.
+    - change `HAVE_OPENSSL` to `SIMPLEWEB_USE_STANDALONE_ASIO`.
+    - change `HAVE_OPENSSL` to `SIMPLEWEB_USE_OPENSSL`.
+  - Add some namespaces as follow:
+    - add `SimpleWeb::HttpServer = SimpleWeb::SocketServer<SimpleWeb::HTTP>` inside `simpleweb/server_http.hpp`.
+    - add `SimpleWeb::HttpClient = SimpleWeb::SocketClient<SimpleWeb::HTTP>` inside `simpleweb/client_http.hpp`.
+    - add `SimpleWeb::HttpsServer = SimpleWeb::SocketServer<SimpleWeb::HTTPS>` inside `simpleweb/server_https.hpp`.
+    - add `SimpleWeb::HttpsClient = SimpleWeb::SocketClient<SimpleWeb::HTTPS>` inside `simpleweb/client_https.hpp`.
+    - add `SimpleWeb::WsServer = SimpleWeb::SocketServer<SimpleWeb::WS>` inside `simpleweb/server_ws.hpp`.
+    - add `SimpleWeb::WsClient = SimpleWeb::SocketClient<SimpleWeb::WS>` inside `simpleweb/client_ws.hpp`.
+    - add `SimpleWeb::WssServer = SimpleWeb::SocketServer<SimpleWeb::WSS>` inside `simpleweb/server_wss.hpp`.
+    - add `SimpleWeb::WssClient = SimpleWeb::SocketClient<SimpleWeb::WSS>` inside `simpleweb/client_wss.hpp`.
 
 ## Building the Debian Package
 

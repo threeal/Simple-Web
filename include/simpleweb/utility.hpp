@@ -1,7 +1,7 @@
 #ifndef SIMPLE_WEB_UTILITY_HPP
 #define SIMPLE_WEB_UTILITY_HPP
 
-#include <simpleweb/status_code.hpp>
+#include "simpleweb/status_code.hpp"
 #include <atomic>
 #include <chrono>
 #include <cstdlib>

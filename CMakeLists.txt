@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(SimpleWeb VERSION 1.0)
+project(SimpleWeb VERSION 1.1)
 
 add_compile_options(-std=c++11 -Wall -Wextra)
 if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -18,14 +18,14 @@ install(
   DESTINATION "lib/cmake/simpleweb"
 )
 
-install(FILES "LICENSE" DESTINATION "share/doc/simpleweb")
-install(DIRECTORY "examples" DESTINATION "share/doc/simpleweb")
+install(FILES "LICENSE" DESTINATION "share/doc/libsimpleweb-dev")
+install(DIRECTORY "examples" DESTINATION "share/doc/libsimpleweb-dev")
 
 set(CPACK_GENERATOR "DEB")
 set(CPACK_DEBIAN_PACKAGE_NAME "libsimpleweb-dev")
 set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
 set(CPACK_DEBIAN_PACKAGE_VERSION "${PROJECT_VERSION}")
-set(CPACK_DEBIAN_PACKAGE_RELEASE 2)
+set(CPACK_DEBIAN_PACKAGE_RELEASE 1)
 set(CPACK_DEBIAN_PACKAGE_DEPENDS
   "libssl-dev (>= 1.1), libboost-filesystem-dev (>= 1.65), libboost-thread-dev (>= 1.65)"
 )

@@ -1,10 +1,10 @@
-#ifndef SIMPLE_WEB_CLIENT_WS_HPP
-#define SIMPLE_WEB_CLIENT_WS_HPP
+#ifndef SIMPLE_WEB_WS_CLIENT_HPP
+#define SIMPLE_WEB_WS_CLIENT_HPP
 
-#include <simpleweb/asio_compatibility.hpp>
-#include <simpleweb/crypto.hpp>
-#include <simpleweb/mutex.hpp>
-#include <simpleweb/utility.hpp>
+#include "simpleweb/asio_compatibility.hpp"
+#include "simpleweb/crypto.hpp"
+#include "simpleweb/mutex.hpp"
+#include "simpleweb/utility.hpp"
 #include <array>
 #include <atomic>
 #include <iostream>
@@ -692,6 +692,7 @@ namespace SimpleWeb {
   class SocketClient : public SocketClientBase<socket_type> {};
 
   using WS = asio::ip::tcp::socket;
+  using WsClient = SocketClient<WS>;
 
   template <>
   class SocketClient<WS> : public SocketClientBase<WS> {
@@ -743,4 +744,4 @@ namespace SimpleWeb {
   };
 } // namespace SimpleWeb
 
-#endif /* SIMPLE_WEB_CLIENT_WS_HPP */
+#endif /* SIMPLE_WEB_WS_CLIENT_HPP */

@@ -1,9 +1,9 @@
-#ifndef SIMPLE_WEB_SERVER_HTTP_HPP
-#define SIMPLE_WEB_SERVER_HTTP_HPP
+#ifndef SIMPLE_WEB_HTTP_SERVER_HPP
+#define SIMPLE_WEB_HTTP_SERVER_HPP
 
-#include <simpleweb/asio_compatibility.hpp>
-#include <simpleweb/mutex.hpp>
-#include <simpleweb/utility.hpp>
+#include "simpleweb/asio_compatibility.hpp"
+#include "simpleweb/mutex.hpp"
+#include "simpleweb/utility.hpp"
 #include <functional>
 #include <iostream>
 #include <limits>
@@ -765,6 +765,7 @@ namespace SimpleWeb {
   class Server : public ServerBase<socket_type> {};
 
   using HTTP = asio::ip::tcp::socket;
+  using HttpServer = Server<HTTP>;
 
   template <>
   class Server<HTTP> : public ServerBase<HTTP> {
@@ -801,4 +802,4 @@ namespace SimpleWeb {
   };
 } // namespace SimpleWeb
 
-#endif /* SIMPLE_WEB_SERVER_HTTP_HPP */
+#endif /* SIMPLE_WEB_HTTP_SERVER_HPP */

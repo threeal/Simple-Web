@@ -1,10 +1,10 @@
-#include <simpleweb/client_wss.hpp>
-#include <simpleweb/server_wss.hpp>
+#include <simpleweb/wss_client.hpp>
+#include <simpleweb/wss_server.hpp>
 
 using namespace std;
 
-using WssServer = SimpleWeb::SocketServer<SimpleWeb::WSS>;
-using WssClient = SimpleWeb::SocketClient<SimpleWeb::WSS>;
+using SimpleWeb::WssServer;
+using SimpleWeb::WssClient;
 
 int main() {
   // WebSocket Secure (WSS)-server at port 8080 using 1 thread

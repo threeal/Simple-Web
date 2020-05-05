@@ -1,10 +1,10 @@
-#include <simpleweb/client_ws.hpp>
-#include <simpleweb/server_ws.hpp>
+#include <simpleweb/ws_client.hpp>
+#include <simpleweb/ws_server.hpp>
 
 using namespace std;
 
-using WsServer = SimpleWeb::SocketServer<SimpleWeb::WS>;
-using WsClient = SimpleWeb::SocketClient<SimpleWeb::WS>;
+using SimpleWeb::WsServer;
+using SimpleWeb::WsClient;
 
 int main() {
   // WebSocket (WS)-server at port 8080 using 1 thread

@@ -1,7 +1,7 @@
-#ifndef SIMPLE_WEB_CLIENT_HTTPS_HPP
-#define SIMPLE_WEB_CLIENT_HTTPS_HPP
+#ifndef SIMPLE_WEB_HTTPS_CLIENT_HPP
+#define SIMPLE_WEB_HTTPS_CLIENT_HPP
 
-#include <simpleweb/client_http.hpp>
+#include "simpleweb/http_client.hpp"
 
 #ifdef SIMPLEWEB_USE_STANDALONE_ASIO
 #include <asio/ssl.hpp>
@@ -11,6 +11,7 @@
 
 namespace SimpleWeb {
   using HTTPS = asio::ssl::stream<asio::ip::tcp::socket>;
+  using HttpsClient = Client<HTTPS>;
 
   template <>
   class Client<HTTPS> : public ClientBase<HTTPS> {
@@ -148,4 +149,4 @@ namespace SimpleWeb {
   };
 } // namespace SimpleWeb
 
-#endif /* SIMPLE_WEB_CLIENT_HTTPS_HPP */
+#endif /* SIMPLE_WEB_HTTPS_CLIENT_HPP */
